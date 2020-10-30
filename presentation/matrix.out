@@ -1,0 +1,106 @@
+julia matrix mulitplication
+
+  0.013408 seconds (2 allocations: 7.629 MiB)
+  0.080052 seconds (2 allocations: 30.518 MiB)
+  0.254958 seconds (2 allocations: 68.665 MiB)
+  0.597726 seconds (2 allocations: 122.070 MiB, 2.97% gc time)
+  1.149242 seconds (2 allocations: 190.735 MiB, 0.14% gc time)
+  1.864824 seconds (2 allocations: 274.658 MiB, 0.02% gc time)
+  2.953758 seconds (2 allocations: 373.840 MiB, 0.01% gc time)
+  4.291345 seconds (2 allocations: 488.281 MiB, 0.01% gc time)
+  6.243724 seconds (2 allocations: 617.981 MiB, 0.01% gc time)
+  8.422658 seconds (2 allocations: 762.940 MiB, 0.00% gc time)
+
+
+R matrix mulitplication
+
+Time difference of 0.4992139 secs
+Time difference of 4.99483 secs
+Time difference of 17.01885 secs
+Time difference of 40.38068 secs
+Time difference of 1.308422 mins
+Time difference of 2.255312 mins
+Time difference of 3.595911 mins
+Time difference of 5.512381 mins
+
+sparse matrix mulitplication
+
+========1                                       
+  0.001760 seconds (6 allocations: 1.594 MiB)   
+  0.011530 seconds (2 allocations: 7.629 MiB)   
+========2                                       
+  0.010796 seconds (6 allocations: 12.077 MiB)  
+  0.082743 seconds (2 allocations: 30.518 MiB)  
+========3                                       
+  0.037371 seconds (7 allocations: 38.867 MiB)  
+  0.258698 seconds (2 allocations: 68.665 MiB)  
+========4                                       
+  0.093216 seconds (7 allocations: 87.847 MiB)  
+  0.587278 seconds (2 allocations: 122.070 MiB) 
+========5                                       
+  0.176863 seconds (7 allocations: 163.857 MiB) 
+  1.173788 seconds (2 allocations: 190.735 MiB) 
+========6                                       
+  0.300503 seconds (7 allocations: 270.740 MiB, 
+  1.933431 seconds (2 allocations: 274.658 MiB, 
+========7                                       
+  0.447354 seconds (7 allocations: 411.235 MiB) 
+  2.971649 seconds (2 allocations: 373.840 MiB, 
+========8                                       
+  0.605548 seconds (7 allocations: 587.790 MiB) 
+  4.366123 seconds (2 allocations: 488.281 MiB) 
+
+
+gernarl inverse
+
+  0.615498 seconds (27 allocations: 68.819 MiB, 9.70% gc time)
+  3.037425 seconds (27 allocations: 274.958 MiB, 3.31% gc time)
+ 10.350937 seconds (31 allocations: 618.426 MiB, 1.02% gc time)
+ 24.132630 seconds (31 allocations: 1.073 GiB, 0.51% gc time)
+ 46.474709 seconds (31 allocations: 1.677 GiB, 0.35% gc time)
+ 78.326040 seconds (31 allocations: 2.415 GiB, 0.19% gc time)
+122.501134 seconds (31 allocations: 3.287 GiB, 0.25% gc time)
+180.632080 seconds (31 allocations: 4.293 GiB, 0.19% gc time)
+  0.052646 seconds (19 allocations: 61.044 MiB, 8.37% gc time)
+  0.293304 seconds (19 allocations: 244.157 MiB)
+  0.914362 seconds (20 allocations: 549.340 MiB, 4.55% gc time)
+  1.943002 seconds (20 allocations: 976.594 MiB, 3.01% gc time)
+  3.697071 seconds (20 allocations: 1.490 GiB, 3.00% gc time)
+  6.094698 seconds (20 allocations: 2.146 GiB, 3.16% gc time)
+  9.296644 seconds (20 allocations: 2.921 GiB, 1.17% gc time)
+ 13.640147 seconds (20 allocations: 3.815 GiB, 1.92% gc time)
+
+ ginv in R
+
+ Time difference of 3.060998 secs
+Time difference of 27.407 secs
+Time difference of 1.618517 mins
+Time difference of 3.7708 mins
+Time difference of 7.33105 mins
+Time difference of 12.64612 mins
+Time difference of 19.74229 mins
+Time difference of 29.15476 mins
+
+cor in R
+
+Time difference of 0.608001 secs
+Time difference of 5.044001 secs
+Time difference of 17.084 secs
+Time difference of 40.63448 secs
+Time difference of 1.333917 mins
+Time difference of 2.320588 mins
+Time difference of 3.680166 mins
+Time difference of 5.494335 mins
+
+cor in julia
+
+  0.028953 seconds (38 allocations: 22.921 MiB, 38.68% gc time)
+  0.142271 seconds (38 allocations: 91.616 MiB, 22.25% gc time)
+  0.424581 seconds (42 allocations: 206.087 MiB, 19.59% gc time)
+  0.744895 seconds (42 allocations: 366.335 MiB, 0.07% gc time)
+  1.414849 seconds (42 allocations: 572.359 MiB, 0.07% gc time)
+  2.389524 seconds (42 allocations: 824.160 MiB, 3.55% gc time)
+  3.543785 seconds (42 allocations: 1.095 GiB, 0.03% gc time)
+  5.332756 seconds (42 allocations: 1.431 GiB, 3.15% gc time)
+  7.359350 seconds (42 allocations: 1.811 GiB, 0.26% gc time)
+  9.804131 seconds (42 allocations: 2.235 GiB, 0.19% gc time)
