@@ -38,46 +38,48 @@ using Plots
 
 # ylabel!("processing time in log10 (seconds)")
 # xlabel!("matrix size (n*n)")
-# savefig("matrice_inverse.pdf")
+# savefig(joinpath(@__DIR__, "matrice_inverse.pdf"))
 
-# # cor
-# x = [i*1000 for i in 1:8]
-# r = [0.608001, 5.044001, 17.084, 40.63448,
-# 1.333917*60, 2.320588*60, 3.680166*60, 5.494335*60]
-# j = [0.028953, 0.142271, 0.424581, 0.744895,
-# 1.414849, 2.389524, 3.543785, 5.332756]
-# plot(
-#   x,
-#   [r,j],
-#   yscale=:log10,
-#   label=["R" "Julia"],
-#   lw=3,
-#   legend=:topleft)
-
-# ylabel!("processing time in log10 (seconds)")
-# xlabel!("number of words")
-# savefig("cor.pdf")
-
-# path finding
+# cor
 x = [i*1000 for i in 1:8]
-g = [13.87286, 1.175378*60, 3.735496*60, 8.988846*60,
-15.72438*60, 27.34516*60, 37.83735*60, 57.18072*60]
-l = [0.704841, 2.650155, 8.291816, 21.826310,
-37.295039, 62.437208, 85.206812, 124.819151,
-37.295039, 62.437208, 85.206812, 124.819151,
-37.295039, 62.437208, 85.206812, 124.819151]
-b = [0.136252, 1.007345, 4.823662, 13.217590,
-25.074029, 42.594684, 60.429467, 90.157625,
-37.295039, 62.437208, 85.206812, 124.819151,
-37.295039, 62.437208, 85.206812, 124.819151]
+r = [0.608001, 5.044001, 17.084, 40.63448,
+1.333917*60, 2.320588*60, 3.680166*60, 5.494335*60]
+j = [0.028953, 0.142271, 0.424581, 0.744895,
+1.414849, 2.389524, 3.543785, 5.332756]
 plot(
   x,
-  [g,l, b],
+  [r,j],
   yscale=:log10,
-  label=["graph based algorithm in WpmWithLdl" "learn_paths in Julia" "build_paths in Julia"],
+  label=["R" "Julia"],
   lw=3,
-  legend=:bottomright)
+  legend=:topleft)
 
 ylabel!("processing time in log10 (seconds)")
 xlabel!("number of words")
-savefig("path_finding.pdf")
+savefig(joinpath(@__DIR__, "cor.pdf"))
+
+# # path finding
+# x = [i for i in 1:16]
+# g = [13.87286, 1.175378*60, 3.735496*60, 8.988846*60,
+# 15.72438*60, 27.34516*60, 37.83735*60, 57.18072*60,
+# NaN,NaN,NaN,NaN,
+# NaN,NaN,NaN,NaN]
+# l = [0.704841, 2.650155, 8.291816, 21.826310,
+# 37.295039, 62.437208, 85.206812, 124.819151,
+# 204.151468, 286.889057, 368.259476, 124.819151,
+# 37.295039, 62.437208, 85.206812, 124.819151]
+# b = [0.136252, 1.007345, 4.823662, 13.217590,
+# 25.074029, 42.594684, 60.429467, 90.157625,
+# 165.963092, 233.723209, 240.060786, 124.819151,
+# 37.295039, 62.437208, 85.206812, 124.819151]
+# plot(
+#   x,
+#   [g,l,b],
+#   yscale=:log10,
+#   label=["graph based algorithm in WpmWithLdl" "learn_paths in Julia" "build_paths in Julia"],
+#   lw=3,
+#   legend=:bottomright)
+
+# ylabel!("processing time in log10 (seconds)")
+# xlabel!("number of words")
+# savefig(joinpath(@__DIR__, "path_finding.pdf"))
