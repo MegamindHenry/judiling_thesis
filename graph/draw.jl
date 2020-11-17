@@ -40,23 +40,55 @@ using Plots
 # xlabel!("matrix size (n*n)")
 # savefig(joinpath(@__DIR__, "matrice_inverse.pdf"))
 
-# cor
+# # matrix inversion
 x = [i*1000 for i in 1:8]
-r = [0.608001, 5.044001, 17.084, 40.63448,
-1.333917*60, 2.320588*60, 3.680166*60, 5.494335*60]
-j = [0.028953, 0.142271, 0.424581, 0.744895,
-1.414849, 2.389524, 3.543785, 5.332756]
+a01 = [0.38, 2.60, 10.11, 23.99,
+46.63, 73.68, 120.99, 176.39]
+b01 = [0.31, 3.66, 14.99, 32.76,
+62.43, 108.04, 149.88, 259.60]
+c01 = b01-a01
+
+a10 = [0.46, 3.23, 10.46, 23.78,
+45.77, 87.78, 126.90, 186.95]
+b10 = [0.33, 3.69, 13.42, 32.32,
+64.54, 104.75, 171.33, 248.88]
+c10 = b10-a10
+
+a25 = [0.57, 4.16, 14.39, 29.29,
+54.69, 94.47, 171.62, 232.76]
+b25 = [0.36, 3.9, 12.93, 32.38,
+63.49, 106.59, 168.70, 245.47]
+c25 = b25-a25
+
 plot(
   x,
-  [r,j],
-  yscale=:log10,
-  label=["R" "Julia"],
+  [c01, c10, c25],
+  # yscale=:log10,
+  label=["density: 0.01" "density: 0.10" "density: 0.25"],
   lw=3,
   legend=:topleft)
 
-ylabel!("processing time in log10 (seconds)")
-xlabel!("number of words")
-savefig(joinpath(@__DIR__, "cor.pdf"))
+ylabel!("saving time in seconds")
+xlabel!("matrix size (n*n)")
+savefig(joinpath(@__DIR__, "matrice_inverse_sparse.pdf"))
+
+# # cor
+# x = [i*1000 for i in 1:8]
+# r = [0.608001, 5.044001, 17.084, 40.63448,
+# 1.333917*60, 2.320588*60, 3.680166*60, 5.494335*60]
+# j = [0.028953, 0.142271, 0.424581, 0.744895,
+# 1.414849, 2.389524, 3.543785, 5.332756]
+# plot(
+#   x,
+#   [r,j],
+#   yscale=:log10,
+#   label=["R" "Julia"],
+#   lw=3,
+#   legend=:topleft)
+
+# ylabel!("processing time in log10 (seconds)")
+# xlabel!("number of words")
+# savefig(joinpath(@__DIR__, "cor.pdf"))
 
 # # path finding
 # x = [i for i in 1:16]
