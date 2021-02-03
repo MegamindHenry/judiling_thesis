@@ -1,12 +1,12 @@
 using LinearAlgebra
 using Statistics
-# walk walks walked walked
-# #wa wal alk lk# lks ks# lke ked ed#
+# walks walked walked_3rd walk
+# #wa wal alk lks ks# lke ked ed# lk#
 C = [
-1 1 1 1 0 0 0 0 0
-1 1 1 0 1 1 0 0 0
-1 1 1 0 0 0 1 1 1
-1 1 1 0 0 0 1 1 1
+1 1 1 0 0 0 0 0 1
+1 1 1 1 1 0 0 0 0
+1 1 1 0 0 1 1 1 0
+1 1 1 0 0 1 1 1 0
 ]
 
 L = [
@@ -27,8 +27,8 @@ S = vcat(S1, S2, S3, S4)
 F = pinv(C)*S
 G = pinv(S)*C
 
-C_val = [1 1 1 0 0 0 1 1 1]
-S_val = L[1:1,:] + L[3:3,:] + L[4:4,:]
+C_val = C[1:1,:]
+S_val = S[1:1,:]
 
 Chat = S*G
 Shat = C*F
@@ -77,10 +77,10 @@ C3hat_val = round.(Chat_val*M3, digits=4)
 # walks walked walk
 # #wa wal alk lks ks# lke ked ed# lk#
 C4 = [
+0 0 0 0 0 0 0 0 1
 0 0 0 1 0 0 0 0 0
-0 0 0 0 1 0 0 0 0
-0 0 0 0 0 0 1 0 0
-0 0 0 0 0 0 1 0 0
+0 0 0 0 0 1 0 0 0
+0 0 0 0 0 1 0 0 0
 ]
 M4 = pinv(C)*C4
 C4hat_val = round.(Chat_val*M4, digits=4)
@@ -89,9 +89,9 @@ C4hat_val = round.(Chat_val*M4, digits=4)
 # #wa wal alk lks ks# lke ked ed# lk#
 C5 = [
 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 1 0 0 0
-0 0 0 0 0 0 0 1 0
-0 0 0 0 0 0 0 1 0
+0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 1 0 0
+0 0 0 0 0 0 1 0 0
 ]
 M5 = pinv(C)*C5
 C5hat_val = round.(Chat_val*M5, digits=4)
@@ -101,8 +101,8 @@ C5hat_val = round.(Chat_val*M5, digits=4)
 C6 = [
 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 1
-0 0 0 0 0 0 0 0 1
+0 0 0 0 0 0 0 1 0
+0 0 0 0 0 0 0 1 0
 ]
 M6 = pinv(C)*C6
 C6hat_val = round.(Chat_val*M6, digits=4)

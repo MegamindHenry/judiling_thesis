@@ -1,16 +1,14 @@
-using JudiLing # our package
-using CSV # read csv files into dataframes
-# using Statistics
+using JudiLing
+using CSV
+using Statistics
 # using JLD2
 # using FileIO
 # using DataFrames
 # using Random
 # using Distributions
 
-# load Latin dataset
 latin = CSV.DataFrame!(CSV.File(joinpath(@__DIR__, "data", "latin.csv")))
 
-# create C matrix
 cue_obj = JudiLing.make_cue_matrix(
   latin,
   grams=3,
@@ -19,7 +17,6 @@ cue_obj = JudiLing.make_cue_matrix(
 
 n_features = size(cue_obj.C, 2)
 
-# if we don't add noise
 S = JudiLing.make_S_matrix(
   latin,
   ["Lexeme"],
@@ -27,25 +24,36 @@ S = JudiLing.make_S_matrix(
   add_noise=true
   )
 
+F = JudiLing.make_transform_matrix(cue_obj.C, S)
+Shat = cue_obj.C * F
+@show JudiLing.eval_SC(Shat, S)
+
+G = JudiLing.make_transform_matrix(S, cue_obj.C)
+Chat = S * G
+@show JudiLing.eval_SC(Chat, cue_obj.C)
+
+# show errors
+rC = cor(Shat, S, dims=2)
+gold = []
+pred = []
+for i in argmax(rC, dims=2)
+  if i[1] == i[2]
+    continue
+  end
+  append!(gold, i[1])
+  append!(pred, i[2])
+end
+
+for (i,j) in zip(gold, pred)
+  println("="^66)
+  println()
+  println()
+  println()
+  println("pred: $(latin[j,:])")
+  println("gold: $(latin[i,:])")
+end
+
 error()
-
-G_train = JudiLing.make_transform_matrix(S_train, cue_obj_train.C)
-Chat_train = S_train * G_train
-@show JudiLing.eval_SC(Chat_train, cue_obj_train.C)
-# 0.480
-
-# if we add noise
-S_train = JudiLing.make_S_matrix(
-  latin_train,
-  ["Lexeme"],
-  ["Person","Number","Tense","Voice","Mood"],
-  add_noise=true
-  )
-
-G_train = JudiLing.make_transform_matrix(S_train, cue_obj_train.C)
-Chat_train = S_train * G_train
-@show JudiLing.eval_SC(Shat_train, S_train)
-# 0.976
 
 ;
 
