@@ -119,8 +119,14 @@ end
 F, FT = wh_learn(C, S, eta=0.0001, n_epochs=1000)
 G, GT = wh_learn(S, C, eta=0.0001, n_epochs=1000)
 
+F1 = pinv(C)*S
+G1 = pinv(S)*C
+
 Chat = S * G
 Shat = C * F
+
+Chat1 = S * G1
+Shat1 = C * F1
 
 a = cor(Chat, C, dims=2)
 b = cor(Shat, S, dims=2)

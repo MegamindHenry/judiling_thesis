@@ -43,11 +43,11 @@ S = vcat(S1, S2, S3, S4, S5, S6, S7, S8)
 # S_train = S[[1,3,4,6,7,8],:]
 # S_val = S[[2,5],:]
 
-C_train = C[[2,3,4,6,7,8],:]
-C_val = C[[1,5],:]
+C_train = C[[2,3,4,7,8],:]
+C_val = C[[6,5],:]
 
-S_train = S[[2,3,4,6,7,8],:]
-S_val = S[[1,5],:]
+S_train = S[[2,3,4,7,8],:]
+S_val = S[[6,5],:]
 
 F_train = pinv(C_train)*S_train
 G_train = pinv(S_train)*C_train
