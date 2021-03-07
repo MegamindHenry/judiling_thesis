@@ -117,8 +117,8 @@ function wh_learn(
   W, T
 end
 
-F, FT = wh_learn(C, S, eta=0.0001, n_epochs=1000)
-G, GT = wh_learn(S, C, eta=0.0001, n_epochs=1000)
+F, FT = wh_learn(C, S, eta=0.0001, n_epochs=200000)
+G, GT = wh_learn(S, C, eta=0.0001, n_epochs=200000)
 
 F1 = pinv(C)*S
 G1 = pinv(S)*C
