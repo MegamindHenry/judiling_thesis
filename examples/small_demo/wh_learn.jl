@@ -1,5 +1,6 @@
 using LinearAlgebra
 using Statistics
+using JudiLing
 
 # # walk walks walked walked
 # # #wa wal alk lk# lks ks# lke ked ed#
@@ -125,11 +126,16 @@ G1 = pinv(S)*C
 Chat = S * G
 Shat = C * F
 
-Chat1 = S * G1
-Shat1 = C * F1
+@show JudiLing.eval_SC(Shat, S)
+@show JudiLing.eval_SC(Chat, C)
 
-a = cor(Chat, C, dims=2)
-b = cor(Shat, S, dims=2)
+Fc = pinv(C)*S
+Gc = pinv(S)*C
 
-# a = round.(a, digits=3)
-# b = round.(b, digits=3)
+Chat = S * Gc
+Shat = C * Fc
+
+@show JudiLing.eval_SC(Shat, S)
+@show JudiLing.eval_SC(Chat, C)
+
+;
