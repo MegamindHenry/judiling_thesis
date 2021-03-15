@@ -1,0 +1,10 @@
+Acc for Chat train: 0.9126722297690666
+Acc for Shat train: 0.9749660392004658
+Acc for Shat train homophones: 0.9912672229769066
+Acc for Chat val: 0.8260869565217391
+Acc for Shat val: 0.9798136645962733
+Acc for Shat val homophones: 0.9860248447204969
+Acc for learn_path train: 0.9827285076654376
+Acc for learn_path val: 0.7919254658385093
+Acc for build_path train: 0.9780710265864545
+Acc for build_path val: 0.38742236024844723
